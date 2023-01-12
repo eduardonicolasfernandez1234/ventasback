@@ -27,3 +27,4 @@ dmypy.json
 
 storage/**/migrations
 sales/**/migrations
+authentication/**/migrations
