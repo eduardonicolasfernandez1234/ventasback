@@ -5,9 +5,9 @@ from ventasback.models import BaseModel
 from storage.models import Provider, Product
 
 class Inventory(BaseModel):
-    price = models.DecimalField(max_digits=10, decimal_places=2, default=0)
-    base_price = models.DecimalField(max_digits=10, decimal_places=2, default=0)
-    quantity = models.IntegerField(validators=[MinValueValidator(0)], default=0)
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+    base_price = models.DecimalField(max_digits=10, decimal_places=2)
+    quantity = models.IntegerField(validators=[MinValueValidator(0)])
     stock = models.IntegerField(validators=[MinValueValidator(0)], default=0)
     
     # Foreign key
@@ -16,7 +16,3 @@ class Inventory(BaseModel):
     
     class Meta:
         ordering = ['id']
-        
-    def save(self, *args, **kwargs):
-            self.stock = self.quantity
-            super(Inventory, self).save(*args, **kwargs)

@@ -2,11 +2,11 @@ from rest_framework import serializers, viewsets
 from storage.models import Category
 from ventasback.models import MyPageNumberPagination
 
-class CategorySerializer(serializers.Serializer):
+class CategorySerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Category
-        field = '__all__'
+        fields = '__all__'
 
 class CategoryViewSet(viewsets.ModelViewSet):
     queryset = Category.objects.all()
