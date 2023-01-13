@@ -4,10 +4,8 @@ from rest_framework import serializers, viewsets, status
 from rest_framework.exceptions import ValidationError
 from django.db import transaction
 
-from authentication.models import User
-from authentication.api import UserSerializer
 from sales.models import Sales, Order, ConfigSales
-from sales.api import OrderSerializer, ConfigSalesSerializer, CreateSalesSerializer
+from sales.api import OrderSerializer, ConfigSalesSerializer
 from ventasback.models import MyPageNumberPagination
 from sales.repositories import SalesRepository
 
