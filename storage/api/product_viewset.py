@@ -3,7 +3,7 @@ from ventasback.models import MyPageNumberPagination
 from storage.models import Product, Category
 from storage.api import CategorySerializer
 
-class ProductSerializer(serializers.Serializer):
+class ProductSerializer(serializers.ModelSerializer):
     category = CategorySerializer(read_only=True, many=False)
     category_id = serializers.PrimaryKeyRelatedField(
         write_only=True, many=False, queryset=Category.objects.all(), source='category'
@@ -11,7 +11,7 @@ class ProductSerializer(serializers.Serializer):
     
     class Meta:
         model = Product
-        field = '__all__'
+        fields = '__all__'
 
 class ProductViewSet(viewsets.ModelViewSet):
     queryset = Product.objects.all()

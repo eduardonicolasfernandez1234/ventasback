@@ -21,7 +21,7 @@ class UserViewSet(viewsets.ModelViewSet):
     def insert_client(self, request, pk=None):
         try:
             serializer = UserCreateSimpleSerializer(data=request.data)
-            serializers.is_valid(raise_exception=True)
+            serializer.is_valid(raise_exception=True)
         except Exception as e:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         
@@ -35,16 +35,16 @@ class UserViewSet(viewsets.ModelViewSet):
             phone=user_data['phone'],
             nit=user_data['nit'],
             birth_date=user_data['birth_date'],
-            user_type=User.CLIENT,
+            user_type=User.TYPE_CLIENT,
         )
         serializer = UserSerializer(user)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
     @action(detail=False, url_path='supervisor', methods=['post'], description='Insert supervisor')
-    def insert_client(self, request, pk=None):
+    def insert_supervisor(self, request, pk=None):
         try:
             serializer = UserCreateSimpleSerializer(data=request.data)
-            serializers.is_valid(raise_exception=True)
+            serializer.is_valid(raise_exception=True)
         except Exception as e:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         
@@ -58,7 +58,7 @@ class UserViewSet(viewsets.ModelViewSet):
             phone=user_data['phone'],
             nit=user_data['nit'],
             birth_date=user_data['birth_date'],
-            user_type=User.SUPERVISOR,
+            user_type=User.TYPE_SUPERVISOR,
         )
         serializer = UserSerializer(user)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
