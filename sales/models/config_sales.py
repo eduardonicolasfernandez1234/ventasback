@@ -5,6 +5,7 @@ from sales.models import Tax
 
 class ConfigSales(BaseModel):
     name = models.CharField(max_length=50)
+    active = models.BooleanField(default=False)
     # Foreign Keys
     taxes = models.ManyToManyField(Tax, related_name='config_sales_taxes')
     
