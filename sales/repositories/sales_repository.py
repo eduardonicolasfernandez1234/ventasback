@@ -1,9 +1,7 @@
+from rest_framework.exceptions import ValidationError
 import decimal
 
 from sales.models import Order
-from storage.models import Inventory
-
-from rest_framework.exceptions import ValidationError
 
 class SalesRepository:
     @staticmethod
@@ -44,4 +42,13 @@ class SalesRepository:
     @staticmethod
     def update_subtotal_sales(sales):
         sales.subtotal_amount = sum([order.total_price for order in sales.orders.all()])
+        sales.save()
+    
+    @staticmethod
+    def update_total_sales(sales):
+        taxes = sales.config.taxes.all()
+        total_taxes = 0
+        for tax in taxes:
+            total_taxes += sales.subtotal_amount * (tax.percentage / decimal.Decimal(100))
+        sales.total_amount = sales.subtotal_amount + total_taxes
         sales.save()

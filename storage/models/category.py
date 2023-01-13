@@ -1,9 +1,10 @@
 from django.db import models
 
 from ventasback.models import BaseModel
+from ventasback.validations import TitleField
 
 class Category(BaseModel):
-    name = models.CharField(max_length=150, unique=True)
+    name = TitleField(max_length=150, unique=True)
     
     class Meta:
         ordering = ['id']

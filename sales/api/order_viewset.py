@@ -1,13 +1,13 @@
-from rest_framework import serializers, viewsets
-from rest_framework.exceptions import ValidationError
-from django.db import transaction
+from rest_framework import serializers, viewsets, status
+from rest_framework.response import Response
 
-from ventasback.models import MyPageNumberPagination
-from sales.models import Order
-from storage.models import Inventory
-from storage.api import InventorySerializer
-from authentication.models import User
 from authentication.api import UserSerializer
+from authentication.models import User
+from sales.models import Order
+from storage.api import InventorySerializer
+from storage.models import Inventory
+from ventasback.models import MyPageNumberPagination
+
 
 class OrderSerializer(serializers.ModelSerializer):
     quantity = serializers.IntegerField(required=True)
@@ -31,43 +31,11 @@ class OrderViewSet(viewsets.ModelViewSet):
     serializer_class = OrderSerializer
     pagination_class = MyPageNumberPagination
 
-    # @transaction.atomic()
-    # def create(self, request, *args, **kwargs):
-    #     serializer = OrderSerializer(data=request.data)
-    #     serializer.is_valid(raise_exception=True)
-    #     order = serializer.save()
-        
-    #     inventory = Inventory.objects.filter(product_id=order.product.id)
-        
-    #     quantity_inventory = sum([inv.stock for inv in inventory])
-        
-    #     if quantity_inventory < order.quantity:
-    #         raise ValidationError({
-    #             'res': 'error',
-    #             'detail': f'No hay suficiente stock para el producto {order.product.name}'
-    #         })
-        
-    #     for inv in inventory:
-    #         if order.quantity <= inv.stock:
-    #             inv.stack = inv.stock - order.quantity
-
-    #     # raise ValidationError({
-    #     #             'res': 'error',
-    #     #             'detail': f'No hay suficiente stock para el producto {order.product.name}'
-    #     #         })
-    #     taxes = self.config.taxes
-    #     for tax in taxes:
-    #         self.total_amount += self.subtotal_amount * tax.percentage
-    #     super(Sales, self).save(*args, **kwargs)
-        
-        
-    # def updateStockInventory(self, inventory, quantity):
-    #     if quantity <= 0:
-    #         return
-    #     check_quantity = inventory.stock - quantity
-    #     if check_quantity < 0:
-    #         inventory.stock = 0
-    #     else:
-    #         inventory.stock = inventory.stock - quantity
-    #     inventory.save()
-    #     return abs(check_quantity)
+    def create(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        order = serializer.save()
+        order.order_state = Order.ORDER_PENDING
+        order.save()
+        headers = self.get_success_headers(order)
+        return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
