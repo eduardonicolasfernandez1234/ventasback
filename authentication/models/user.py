@@ -4,16 +4,16 @@ from django.contrib.auth.models import AbstractUser
 
 class User(AbstractUser):
     
-    CLIENT = 0
-    SUPERVISOR = 1
-    ADMIN = 2
+    TYPE_CLIENT = 0
+    TYPE_SUPERVISOR = 1
+    TYPE_ADMIN = 2
     USER_TYPES = (
-        (CLIENT, 'client'),
-        (SUPERVISOR, 'supervisor'),
-        (ADMIN, 'admin'),
+        (TYPE_CLIENT, 'client'),
+        (TYPE_SUPERVISOR, 'supervisor'),
+        (TYPE_ADMIN, 'admin'),
     )
     
-    user_type = models.PositiveIntegerField(choices=USER_TYPES, default=CLIENT)
+    user_type = models.PositiveIntegerField(choices=USER_TYPES, default=TYPE_CLIENT)
     full_name = models.CharField(max_length=200)
     address = models.CharField(max_length=100)
     email = models.CharField(max_length=100)
