@@ -14,8 +14,11 @@ from sales.repositories import SalesRepository
 class SalesSerializer(serializers.ModelSerializer):
     subtotal_amount = serializers.DecimalField(max_digits=10, decimal_places=2, required=False)
     total_amount = serializers.DecimalField(max_digits=10, decimal_places=2, required=False)
-    config = serializers.PrimaryKeyRelatedField(many=False, write_only=True, queryset=ConfigSales.objects.all(), source='orders', required=False)
     
+    config = ConfigSalesSerializer(read_only=True, many=False)
+    config_id = serializers.PrimaryKeyRelatedField(
+        many=False, write_only=True, queryset=ConfigSales.objects.filter(active=True), source='config', required=False
+    )
     orders = OrderSerializer(read_only=True, many=True)
     orders_list = serializers.PrimaryKeyRelatedField(
         many=True, write_only=True, queryset=Order.objects.all(), source='orders'
@@ -38,9 +41,10 @@ class SalesViewSet(viewsets.ModelViewSet):
                 serializer.is_valid(raise_exception=True)
                 sales = serializer.save()
                 SalesRepository.validate_orders_have_status_pending(sales.orders)
-                SalesRepository.update_subtotal_sales(sales)
                 SalesRepository.validate_orders_have_same_client(sales.orders)
                 SalesRepository.validate_stock(sales.orders)
+                SalesRepository.update_subtotal_sales(sales)
+                SalesRepository.update_total_sales(sales)
                 headers = self.get_success_headers(serializer.data)
                 return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
         except ValidationError as v:

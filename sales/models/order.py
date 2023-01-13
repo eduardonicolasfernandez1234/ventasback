@@ -41,5 +41,5 @@ class Order(BaseModel):
                 'res': 'error',
                 'detail': f'No hay suficiente stock para el producto {self.inventory.product.name}'
             })
-        self.total_price = inventory.base_price * self.quantity
+        self.total_price = inventory.price * self.quantity
         super(Order, self).save(*args, **kwargs)

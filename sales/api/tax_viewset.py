@@ -4,8 +4,6 @@ from ventasback.models import MyPageNumberPagination
 from sales.models import Tax
 
 class TaxSerializer(serializers.ModelSerializer):
-    # name = serializers.CharField(max_length=255, required=True)
-    # percentage = serializers.DecimalField(max_digits=10, decimal_places=2)
     
     class Meta:
         model = Tax
