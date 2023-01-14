@@ -7,6 +7,112 @@
 	},
 	"item": [
 		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "User",
+					"item": [
+						{
+							"name": "get user list",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/auth/user/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"auth",
+										"user",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create client",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"full_name\": \"Client Test\",\r\n    \"username\": \"client\",\r\n    \"address\": \"direccion client\",\r\n    \"email\": \"client@test.com\",\r\n    \"phone\": \"7484848\",\r\n    \"nit\": \"854848\",\r\n    \"password\": \"client\",\r\n    \"birth_date\": \"2022-01-09\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/auth/user/client/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"auth",
+										"user",
+										"client",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create supervisor",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"full_name\": \"Supervisor Test\",\r\n    \"username\": \"supervisor\",\r\n    \"address\": \"direccion supervisor\",\r\n    \"email\": \"supervisor@test.com\",\r\n    \"phone\": \"1564116\",\r\n    \"nit\": \"8789431\",\r\n    \"password\": \"supervisor\",\r\n    \"birth_date\": \"2022-01-09\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/auth/user/supervisor/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"auth",
+										"user",
+										"supervisor",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			],
+			"description": "Aplicación que contiene la entidad de usuario para la autenticación."
+		},
+		{
 			"name": "Sales",
 			"item": [
 				{
@@ -166,6 +272,33 @@
 							"response": []
 						},
 						{
+							"name": "get sales list by client id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/sales/sales/1/client/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"sales",
+										"sales",
+										"1",
+										"client",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
 							"name": "create sales",
 							"request": {
 								"method": "POST",
@@ -193,6 +326,41 @@
 										"api",
 										"sales",
 										"sales",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "report sales by range date",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"init_date\": \"2023-01-13\",\r\n    \"last_date\": \"2023-01-15\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/sales/sales/report-range-date/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"sales",
+										"sales",
+										"report-range-date",
 										""
 									]
 								}
@@ -230,6 +398,33 @@
 							"response": []
 						},
 						{
+							"name": "get order list by client id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/sales/order/4/client/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"sales",
+										"order",
+										"4",
+										"client",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
 							"name": "create order",
 							"request": {
 								"method": "POST",
@@ -257,111 +452,6 @@
 										"api",
 										"sales",
 										"order",
-										""
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				}
-			]
-		},
-		{
-			"name": "Authentication",
-			"item": [
-				{
-					"name": "User",
-					"item": [
-						{
-							"name": "get user list",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "http://127.0.0.1:8000/api/auth/user/",
-									"protocol": "http",
-									"host": [
-										"127",
-										"0",
-										"0",
-										"1"
-									],
-									"port": "8000",
-									"path": [
-										"api",
-										"auth",
-										"user",
-										""
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "create client",
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"full_name\": \"Client Test\",\r\n    \"username\": \"client\",\r\n    \"address\": \"direccion client\",\r\n    \"email\": \"client@test.com\",\r\n    \"phone\": \"7484848\",\r\n    \"nit\": \"854848\",\r\n    \"password\": \"client\",\r\n    \"birth_date\": \"2022-01-09\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://127.0.0.1:8000/api/auth/user/client/",
-									"protocol": "http",
-									"host": [
-										"127",
-										"0",
-										"0",
-										"1"
-									],
-									"port": "8000",
-									"path": [
-										"api",
-										"auth",
-										"user",
-										"client",
-										""
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "create supervisor",
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"full_name\": \"Supervisor Test\",\r\n    \"username\": \"supervisor\",\r\n    \"address\": \"direccion supervisor\",\r\n    \"email\": \"supervisor@test.com\",\r\n    \"phone\": \"1564116\",\r\n    \"nit\": \"8789431\",\r\n    \"password\": \"supervisor\",\r\n    \"birth_date\": \"2022-01-09\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://127.0.0.1:8000/api/auth/user/supervisor/",
-									"protocol": "http",
-									"host": [
-										"127",
-										"0",
-										"0",
-										"1"
-									],
-									"port": "8000",
-									"path": [
-										"api",
-										"auth",
-										"user",
-										"supervisor",
 										""
 									]
 								}
@@ -532,13 +622,67 @@
 							"response": []
 						},
 						{
+							"name": "get all products of inventory by category id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/storage/inventory/1/category/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"storage",
+										"inventory",
+										"1",
+										"category",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get all products of inventory by provider id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/storage/inventory/1/provider/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"storage",
+										"inventory",
+										"1",
+										"provider",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
 							"name": "create inventory",
 							"request": {
 								"method": "POST",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"price\": 750,\r\n    \"base_price\": 500,\r\n    \"quantity\": 15,\r\n    \"provider_id\": 2,\r\n    \"product_id\": 3\r\n}",
+									"raw": "{\r\n    \"price\": 900,\r\n    \"base_price\": 500,\r\n    \"quantity\": 15,\r\n    \"provider_id\": 2,\r\n    \"product_id\": 3\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -559,6 +703,41 @@
 										"api",
 										"storage",
 										"inventory",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "search inventory",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"price_init\": null,\r\n    \"price_last\": null,\r\n    \"stock_init\": 1,\r\n    \"stock_last\": 5,\r\n    \"provider\": null,\r\n    \"product\": \"Microfono\",\r\n    \"category\": null\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/storage/inventory/search/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"storage",
+										"inventory",
+										"search",
 										""
 									]
 								}
