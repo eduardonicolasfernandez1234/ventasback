@@ -1,6 +1,6 @@
 from rest_framework import serializers, viewsets, status
 from rest_framework.response import Response
-from ventasback.models import MyPageNumberPagination
+from base.models import MyPageNumberPagination
 from storage.models import Inventory, Product, Provider
 from storage.api import ProductSerializer, ProviderSerializer
 

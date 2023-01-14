@@ -1,6 +1,6 @@
 from django.db import models
 
-from ventasback.models import BaseModel
+from base.models import BaseModel
 from sales.models import Tax
 
 class ConfigSales(BaseModel):

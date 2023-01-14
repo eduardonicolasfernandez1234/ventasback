@@ -2,7 +2,7 @@ from django.db import models
 from django.core.validators import MinValueValidator
 from rest_framework.exceptions import ValidationError
 
-from ventasback.models import BaseModel
+from base.models import BaseModel
 from sales.models import Order, ConfigSales
 
 class Sales(BaseModel):

@@ -3,7 +3,7 @@ from rest_framework.response import Response
 
 from sales.models import Tax, ConfigSales
 from sales.api import TaxSerializer
-from ventasback.models import MyPageNumberPagination
+from base.models import MyPageNumberPagination
 
 class ConfigSalesSerializer(serializers.ModelSerializer):
     taxes = TaxSerializer(read_only=True, many=True)

@@ -1,6 +1,6 @@
 from rest_framework import serializers, viewsets
 from storage.models import Provider
-from ventasback.models import MyPageNumberPagination
+from base.models import MyPageNumberPagination
 
 class ProviderSerializer(serializers.ModelSerializer):
     

@@ -1,7 +1,7 @@
 from django.db import models
 
-from ventasback.models import BaseModel
-from ventasback.validations import TitleField
+from base.models import BaseModel
+from base.validations import TitleField
 
 class Provider(BaseModel):
     name = TitleField(max_length=150)

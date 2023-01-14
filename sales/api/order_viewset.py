@@ -6,7 +6,7 @@ from authentication.models import User
 from sales.models import Order
 from storage.api import InventorySerializer
 from storage.models import Inventory
-from ventasback.models import MyPageNumberPagination
+from base.models import MyPageNumberPagination
 
 
 class OrderSerializer(serializers.ModelSerializer):

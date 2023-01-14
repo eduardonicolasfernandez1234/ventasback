@@ -1,4 +1,4 @@
-"""ventasback URL Configuration
+"""base URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.1/topics/http/urls/
@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 
 from rest_framework_simplejwt.views import TokenRefreshView, TokenVerifyView
-from ventasback.views.TokenSerializer import MyTokenObtainPairView
+from base.views.TokenSerializer import MyTokenObtainPairView
 
 urlpatterns = [
     path('admin/', admin.site.urls),

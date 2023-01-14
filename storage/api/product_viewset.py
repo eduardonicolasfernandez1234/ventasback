@@ -1,7 +1,7 @@
 from rest_framework import serializers, viewsets
 from django.core.validators import MinValueValidator, MaxValueValidator
 
-from ventasback.models import MyPageNumberPagination
+from base.models import MyPageNumberPagination
 from storage.models import Product, Category
 from storage.api import CategorySerializer
 

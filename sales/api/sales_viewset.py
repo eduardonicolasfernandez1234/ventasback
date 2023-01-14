@@ -6,7 +6,7 @@ from django.db import transaction
 
 from sales.models import Sales, Order, ConfigSales
 from sales.api import OrderSerializer, ConfigSalesSerializer
-from ventasback.models import MyPageNumberPagination
+from base.models import MyPageNumberPagination
 from sales.repositories import SalesRepository
 
 class SalesSerializer(serializers.ModelSerializer):

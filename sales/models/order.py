@@ -2,7 +2,7 @@ from django.db import models
 from django.core.validators import MinValueValidator
 from rest_framework.exceptions import ValidationError
 
-from ventasback.models import BaseModel
+from base.models import BaseModel
 from storage.models import Inventory
 from authentication.models import User
 

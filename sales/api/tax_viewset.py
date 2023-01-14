@@ -1,6 +1,6 @@
 from rest_framework import serializers, viewsets
 
-from ventasback.models import MyPageNumberPagination
+from base.models import MyPageNumberPagination
 from sales.models import Tax
 
 class TaxSerializer(serializers.ModelSerializer):

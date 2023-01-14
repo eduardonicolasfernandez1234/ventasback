@@ -20,3 +20,6 @@ class User(AbstractUser):
     phone = models.CharField(max_length=10)
     nit = models.CharField(max_length=13)
     birth_date = models.DateField(null=True, default=None)
+    
+    class Meta:
+        ordering = ['id']
