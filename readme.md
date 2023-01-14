@@ -45,9 +45,7 @@ $ python manage.py runserver
 
 Ingresar al siguiente enlace para poder acceder a la interfaz de administración de Django, en la cual podrá realizar el CRUD de las aplicaciones. 
 
-http://localhost:8000/admin/
-
-![image-20230114001408574](C:\Users\pc\AppData\Roaming\Typora\typora-user-images\image-20230114001408574.png)
+![image](https://user-images.githubusercontent.com/30891977/212450732-6054702a-aa50-4bff-bca4-cabbb7eb0969.png)
 
 **Importar las colecciones de datos para realizar consultas por POSTMAN**
 
@@ -59,13 +57,13 @@ La colección de datos se encuentra en la carpeta raíz del proyecto, una vez cl
 
 Una vez importada la colección **Ventas Back** podrá ver la documentación de la API clicando en la opción "View documentation" a través del botón  "view more options"
 
-![image-20230114002748061](C:\Users\pc\AppData\Roaming\Typora\typora-user-images\image-20230114002748061.png)
+![image](https://user-images.githubusercontent.com/30891977/212450756-dad52601-7150-40cf-a8da-4a8865d4df91.png)
 
 Todas las peticiones que se realicen de las carpetas **Ventas Back** cuentan con un script de autenticación, de tal modo que no sea necesario hacer login y cambiar el token de autorización.
 
 En caso de querer actualizar el script actualizar los campos **username** y **password** en la sección Pre-request Script de la carpeta de la colección.
 
-![image-20230114002410906](C:\Users\pc\AppData\Roaming\Typora\typora-user-images\image-20230114002410906.png)  
+![image](https://user-images.githubusercontent.com/30891977/212450781-138a25d4-ceac-46c6-94a7-489b1db4f623.png)
 
 
 
@@ -121,8 +119,7 @@ Construir un servicio API REST para la gestión de productos de un almacén:
 
 Diagrama ER del proyecto separado por aplicaciones.
 
-![Diagrama-ER Ventas Back](C:\Users\pc\Downloads\Diagrama-ER Ventas Back.png)
-
+![image](https://user-images.githubusercontent.com/30891977/212450788-86e9080c-dd81-4de2-b310-f397b85a3057.png)
 
 
 #### 1.3 Colección de Datos API
