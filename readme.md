@@ -45,7 +45,10 @@ $ python manage.py runserver
 
 Ingresar al siguiente enlace para poder acceder a la interfaz de administración de Django, en la cual podrá realizar el CRUD de las aplicaciones. 
 
-![image](https://user-images.githubusercontent.com/30891977/212450732-6054702a-aa50-4bff-bca4-cabbb7eb0969.png)
+http://localhost:8000/admin/
+
+![image](https://user-images.githubusercontent.com/30891977/212463832-24b3ddf6-31ba-46ae-ba76-6a67eb7ebb81.png)
+
 
 **Importar las colecciones de datos para realizar consultas por POSTMAN**
 
@@ -63,7 +66,7 @@ Todas las peticiones que se realicen de las carpetas **Ventas Back** cuentan con
 
 En caso de querer actualizar el script actualizar los campos **username** y **password** en la sección Pre-request Script de la carpeta de la colección.
 
-![image](https://user-images.githubusercontent.com/30891977/212450781-138a25d4-ceac-46c6-94a7-489b1db4f623.png)
+![image](https://user-images.githubusercontent.com/30891977/212463876-8e03aa3d-cd8c-4968-8a13-b592d135f8c8.png)
 
 
 
@@ -119,7 +122,7 @@ Construir un servicio API REST para la gestión de productos de un almacén:
 
 Diagrama ER del proyecto separado por aplicaciones.
 
-![image](https://user-images.githubusercontent.com/30891977/212450788-86e9080c-dd81-4de2-b310-f397b85a3057.png)
+![image](https://user-images.githubusercontent.com/30891977/212463914-2e212e8b-e826-43c3-9158-2eb1de73e3ee.png)
 
 
 #### 1.3 Colección de Datos API
