@@ -1,18 +1,21 @@
-# from rest_framework import serializers
-# from sales.models import Sales, Order
+from rest_framework import serializers
+from django.db.models import Model
+from sales.models import Sales, Order, ReportSales
+    
+class OrderSimpleSerializer(serializers.ModelSerializer):    
+    class Meta:
+        model = Order
+        fields = '__all__'
 
-# class SimpleSalesSerializer(serializers.ModelSerializer):
-    
-#     class Meta:
-#         model = Sales
-#         fields = '__all__'
-    
-# class SimpleOrderSerializer(serializers.ModelSerializer):
-    
-#     class Meta:
-#         model = Order
-#         fields = '__all__'
+class SalesSimpleSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Sales
+        fields = '__all__'
 
-# class CreateSalesSerializer(serializers.Serializer):
-#     sales = SimpleSalesSerializer(write_only=True, many=False)
-#     orders = SimpleOrderSerializer(write_only=True, many=True)
+class ReportSalesSerializer(serializers.ModelSerializer):
+    init_date = serializers.DateField(required=True)
+    last_date = serializers.DateField(required=True)
+    
+    class Meta:
+        model = ReportSales
+        fields = '__all__'

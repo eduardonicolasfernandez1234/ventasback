@@ -1,3 +1,4 @@
+from .extra_serializer import InventoryFilterSerializer
 from .category_viewset import CategorySerializer, CategoryViewSet
 from .provider_viewset import ProviderSerializer, ProviderViewSet
 from .product_viewset import ProductSerializer, ProductViewSet
