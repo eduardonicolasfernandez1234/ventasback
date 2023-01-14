@@ -10,3 +10,6 @@ class Provider(BaseModel):
     
     class Meta:
         ordering = ['id']
+
+    def __str__(self) -> str:
+        return f"{self.id}.- {self.name} - {self.nit} - {self.phone}"

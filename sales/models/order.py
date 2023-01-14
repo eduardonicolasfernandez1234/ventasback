@@ -26,6 +26,9 @@ class Order(BaseModel):
     
     class Meta:
         ordering = ['id']
+        
+    def __str__(self) -> str:
+        return f"{self.id}.- {self.inventory.product.name} - {self.client.username} - {self.quantity}"
 
     def save(self, *args, **kwargs):
         try:

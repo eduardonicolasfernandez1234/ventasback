@@ -16,3 +16,6 @@ class Inventory(BaseModel):
     
     class Meta:
         ordering = ['id']
+        
+    def __str__(self):
+        return f"{self.id}.- {self.product.name} - {self.provider.name} - {self.price} - {self.stock}"

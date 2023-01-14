@@ -16,14 +16,16 @@ class OrderAdmin(admin.ModelAdmin):
     
     search_fields = ['quantity', 'total_price']
     list_filter = ['quantity', 'total_price', 'inventory']
+    exclude = ['total_price']
     
 admin.site.register(Order, OrderAdmin)
 
 class SalesAdmin(admin.ModelAdmin):
-    list_display = ['subtotal_amount', 'total_amount', 'config']
+    list_display = ['subtotal_amount', 'total_amount', 'sales_state', 'config']
     
-    search_fields = ['subtotal_amount', 'total_amount']
+    search_fields = ['subtotal_amount', 'sales_state', 'total_amount']
     list_filter = ['subtotal_amount', 'total_amount']
+    exclude = ['sales_state', 'subtotal_amount', 'total_amount', 'config']
     
 admin.site.register(Sales, SalesAdmin)
 

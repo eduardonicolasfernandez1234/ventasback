@@ -35,5 +35,6 @@ class InventoryAdmin(admin.ModelAdmin):
     
     search_fields = ['price', 'base_price', 'quantity', 'stock']
     list_filter = ['price', 'base_price', 'quantity', 'stock', 'provider', 'product']
+    exclude = ['stock']
     
 admin.site.register(Inventory, InventoryAdmin)

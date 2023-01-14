@@ -23,7 +23,7 @@ class SalesSerializer(serializers.ModelSerializer):
     )
     orders = OrderSerializer(read_only=True, many=True)
     orders_list = serializers.PrimaryKeyRelatedField(
-        many=True, write_only=True, queryset=Order.objects.all(), source='orders'
+        many=True, write_only=True, queryset=Order.objects.filter(order_state=Order.ORDER_PENDING), source='orders'
     )
     
     class Meta:
