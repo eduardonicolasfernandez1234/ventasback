@@ -18,4 +18,4 @@ application = get_wsgi_application()
 
 User = get_user_model();
 
-User.objects.create_superuser('admin', 'admin@admin.com', 'password')
+# User.objects.create_superuser('admin', 'admin@admin.com', 'password')
